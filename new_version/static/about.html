@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+                <section id="about">
+                  <div class="container">
+                    <div class="row">
+
+                      <div class="col-lg-5 col-md-6">
+                        <div class="about-img">
+                          <img src="{{ url_for('static', filename='img/about-img.jpg')}}" alt="">
+                        </div>
+                      </div>
+
+                      <div class="col-lg-7 col-md-6">
+                        <div class="about-content">
+                          <h2>About Us</h2>
+                          <h3>JOBS was established in 2020 by four students of ACA Advanced Python Course as their final project.</h3>
+                          <p>The main goal is to create a platform where a person could easily find jobs appropriate to his/her skills.</p>
+                          <p>Advantages are </p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+                <!-- #about -->
+<!--==========================
+      Team Section
+    ============================-->
+    <section id="team" class="section-bg">
+      <div class="container">
+        <div class="section-header">
+          <h3>Team</h3>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp">
+            <div class="member">
+              <img src="{{ url_for('static', filename='img/team-1.jpg')}}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Artur Mkrtchyan</h4>
+                  <span>Co-founder & CEO</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="member">
+              <img src="{{ url_for('static', filename='img/team-2.jpg')}}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Tatev Alaverdyan</h4>
+                  <span>Co-founder & CTO</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="member">
+              <img src="{{ url_for('static', filename='img/team-3.jpg')}}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Sona Kirakosyan</h4>
+                  <span>Co-founder & CPO</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="member">
+              <img src="{{ url_for('static', filename='img/team-4.jpg')}}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Liana Varosyan</h4>
+                  <span>Co-founder & COO</span>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- #team -->
+{% endblock content %}
