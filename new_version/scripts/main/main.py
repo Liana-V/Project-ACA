@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template
-from models import Post
+from new_version.models import Post
 from flask_login import login_required, current_user
 
 

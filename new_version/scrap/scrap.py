@@ -3,10 +3,10 @@ import sys
 from urllib.parse import urlparse
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup, NavigableString
-
-global dict_jobs
+from new_version.db.dbmgr import find
+global dict_jobs,job_skills
 dict_jobs=[]
-
+job_skills = []
 
 class Spider:
     def __init__(self, url: str):
@@ -89,11 +89,15 @@ class Spider:
             for i in skill_tag:
                 skills.append(i.text.replace('\n', ''))
 
+
             id = [str(company).replace(" ", "").replace('\n', '').rstrip() + str(title).replace(" ", "").replace('\n',
                                                                                                                  '') + str(
                 deadline).replace(" ", "").replace('\n', '')]
             id = hash(''.join(id).lower())
             id += sys.maxsize + 1
+            for s in skills:
+                s = find('id', 'SKILLS', str(s))
+                job_skills.append({'job_id': id, 'skill_id': s})
             record = {
                 'id': id, 'company': company, 'img': img, 'title': title, 'deadline': deadline,
                 'category': category, 'job_type': job_type, 'job_desc': job_desc,
@@ -132,6 +136,9 @@ def job_scrap():
         print(dict_jobs)
         json.dump(dict_jobs, fp, indent=4)
     fp.close()
+    with open('scrap/job_skills.json', 'w') as fp2:
+        json.dump(job_skills, fp2, indent=4)
+    fp2.close()
     return 'a'
 
 
