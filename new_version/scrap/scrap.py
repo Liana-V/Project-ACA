@@ -3,7 +3,7 @@ import sys
 from urllib.parse import urlparse
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup, NavigableString
-from new_version.db.dbmgr import find
+from db.dbmgr import find
 global dict_jobs,job_skills
 dict_jobs=[]
 job_skills = []
@@ -97,7 +97,8 @@ class Spider:
             id += sys.maxsize + 1
             for s in skills:
                 s = find('id', 'SKILLS', str(s))
-                job_skills.append({'job_id': id, 'skill_id': s})
+                if s:
+                    job_skills.append({'job_id': id, 'skill_id': s})
             record = {
                 'id': id, 'company': company, 'img': img, 'title': title, 'deadline': deadline,
                 'category': category, 'job_type': job_type, 'job_desc': job_desc,

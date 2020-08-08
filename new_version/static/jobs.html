@@ -3,16 +3,25 @@
 {% block title %} Jobs {% endblock %}
 {% block content %}
 
+<section class="products">
+{% for job in jobs %}
+  <!-- It's likely you'll need to link the card somewhere. You could add a button in the info, link the titles, or even wrap the entire card in an <a href="..."> -->
 
-	<div id="gallery" class="grid">
-	{% for job in jobs %}
-		<div class="image-wrap">
-			<a href="{{ url_for('main.personal', id=job.id) }}"><img src={{job.img}}></a>
-		<h3> {{ job.title }} -- {{ job.company}}</h3>
-		<p> {{ job.deadline }} </p>
-		</div>
-	{% endfor %}
-	</div>
+  <div class="product-card">
+
+    <div class="product-image">
+		<a href="{{ url_for('main.personal', id=job.id) }}"><img src={{job.img}}></a>
+    </div>
+    <div class="product-info">
+      <h5> {{ job.title }} -- {{ job.company}}</h5>
+		<h6> {{ job.deadline }} </h6>
+    </div>
+  </div>
+{% endfor %}
+
+</section>
+
+
 {% endblock content %}
 
 

@@ -41,7 +41,10 @@ def find(find,table_name,find_by):
     conn = sqlite3.connect("my_db.db")
     cursor = conn.cursor()
     FIND="SELECT {0}  FROM {1} WHERE title = '{2}';".format(find,table_name,find_by)
-    a=cursor.execute(FIND).fetchall()[0][0]
+    try:
+        a=cursor.execute(FIND).fetchall()[0][0]
+    except Exception as ex:
+        a=0
     return int(a)
 # def select(cursor,table_name:str,param:str):
 #     select_query = "select id from skills where title = 'Hindi'"
