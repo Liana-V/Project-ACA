@@ -62,25 +62,106 @@ h6 {
   transition: background 0.5s;
   z-index: 11;
 }
-.products {
+/*--------------------------------------------------------------
+# JOBS list
+--------------------------------------------------------------*/
+
+
+.jobs {
   display: flex;
   flex-wrap: wrap;
   margin-top:150px;
 }
-.product-card {
-  padding: 2%;
-  flex-grow: 1;
-  flex-basis: 16%;
-  display: flex; /* so child elements can use flexbox stuff too! */
+.jobs-card {
+    width: 30%;
+    padding: 4%;
+    flex-grow: 4;
+    flex-basis: 16%;
+    display: inline-flex;
+    margin-top: 2%;
+    padding-bottom: 0;
+    }
+
+
+.jobs-image-wrapper {
+    border: 1px solid #F7F7F5;
+    overflow: hidden;
+    margin-bottom: 30px;
+    }
+.single-jobs{
+    position: relative;
 }
-.product-info {
-  margin-top: auto;
+.jobinfo {
+    position: relative;
+}
+.jobinfo img {
+   padding:10%;
+}
+.text-center {
+    text-align: center;
 }
 .back-to-top i {
   padding-top: 12px;
   color: #fff;
 }
 
+.jobs-image-wrapper:hover {
+
+            border-radius: 30px;
+            border-solid:2px;
+            border-color:#514E7F;
+            transform: scale(1);
+}
+
+.jobs-image-wrapper:hover img {
+
+            border-radius: 50px;
+            border-solid:2px;
+            border-color:#514E7F;
+            transform: scale(1);
+}
+.jobs-image-wrapper:hover h5 {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #514E7F;
+}
+.jobs-image-wrapper:hover h6 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #514E7F;
+}
+.choose {
+    border-top: 1px solid #F7F7F0;
+    padding: 25%;
+}
+.nav-justified {
+    width: 100%;
+}
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.choose ul li a {
+    color: #B3AFA8;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.choose ul li a i {
+    margin-right: 5px;
+}
+.nav:after {
+    clear: both;
+}
+.nav:before, .nav:after {
+    display: table;
+    content: " ";
+}
 /* Prelaoder */
 
 #preloader {
@@ -209,9 +290,9 @@ h6 {
 }
 
 #header .logo img {
-  padding: 0;
-  margin: 7px 0;
-  max-height: 26px;
+    margin: 7px 0;
+    max-height: 130px;
+    margin-top: -42px;
 }
 
 .main-pages {
@@ -955,6 +1036,9 @@ h6 {
 #team {
   padding: 60px 0;
 }
+#team .img-fluid{
+    height: 180px;
+    }
 
 #team .member {
   text-align: center;

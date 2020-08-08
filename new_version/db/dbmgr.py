@@ -2,7 +2,7 @@ import sqlite3
 import json
 
 def drop(cursor,table_name:str):
-    drop_query = "DROP TABLE IF  EXISTS  {}".format(table_name)
+    drop_query = "DROP TABLE IF  EXISTS {}".format(table_name)
     cursor.execute(drop_query)
     return cursor
 
@@ -26,9 +26,9 @@ def insert_json_to_db(cursor,table_name:str,file_name:str):
             values.append(list(value))
             value.clear()
         print(values)
-
-        create_query = "create table if not exists {0} ({1})".format(table_name, " text,".join(columns))
-        insert_query = "insert into {0} ({1})values(?{2})".format(table_name, ", ".join(columns),
+        id='id INTEGER PRIMARY KEY ,'
+        create_query = "create table if not exists {0} ({1}{2})".format(table_name, id," text,".join(columns[1:]))
+        insert_query = "insert or replace into {0} ({1})values(?{2})".format(table_name, ", ".join(columns),
                                                                    ",?" * (len(columns) - 1))
 
     cursor.execute(create_query)

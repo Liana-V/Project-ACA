@@ -5,16 +5,26 @@
 
 <section class="products">
 {% for job in jobs %}
-  <!-- It's likely you'll need to link the card somewhere. You could add a button in the info, link the titles, or even wrap the entire card in an <a href="..."> -->
+  <div class="jobs-card">
 
-  <div class="product-card">
+    <div class="jobs-image-wrapper ">
+        <a class="single-jobs" href="{{ url_for('main.personal', id=job.id) }}">
+            <div class="jobinfo text-center">
+                <img src={{job.img}}>
+                <h5> {{ job.title }}</h5>
+                <h6>{{ job.company}}</h6>
+                <h8> {{ job.deadline }} </h8>
+            </div>
 
-    <div class="product-image">
-		<a href="{{ url_for('main.personal', id=job.id) }}"><img src={{job.img}}></a>
-    </div>
-    <div class="product-info">
-      <h5> {{ job.title }} -- {{ job.company}}</h5>
-		<h6> {{ job.deadline }} </h6>
+
+
+        </a>
+        <div class="choose">
+            <ul class="nav nav-pills nav-justified">
+                <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+            </ul>
+        </div>
+
     </div>
   </div>
 {% endfor %}

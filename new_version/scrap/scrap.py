@@ -4,10 +4,10 @@ from urllib.parse import urlparse
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup, NavigableString
 from db.dbmgr import find
-global dict_jobs,job_skills
+global dict_jobs,job_skills,h_count
 dict_jobs=[]
 job_skills = []
-
+h_count=0
 class Spider:
     def __init__(self, url: str):
         self.url = url
@@ -34,6 +34,7 @@ class Spider:
 
     def __crawl_job(self, url: str) -> dict:
         s = self.__open_url(url)
+        global h_count
         counter = 0
         record = {}
         if s:
@@ -98,7 +99,8 @@ class Spider:
             for s in skills:
                 s = find('id', 'SKILLS', str(s))
                 if s:
-                    job_skills.append({'job_id': id, 'skill_id': s})
+                    job_skills.append({'id':h_count,'job_id': id, 'skill_id': s})
+                    h_count+=1
             record = {
                 'id': id, 'company': company, 'img': img, 'title': title, 'deadline': deadline,
                 'category': category, 'job_type': job_type, 'job_desc': job_desc,
@@ -132,9 +134,9 @@ def job_scrap():
     for page in range(1):
         spider = Spider("https://staff.am/en/jobs?page=" + str(page) + "&per-page=50")
         spider.run()
-    print(dict_jobs)
-    with open('scrap/data.json', 'w') as fp:
         print(dict_jobs)
+    with open('scrap/data.json', 'w') as fp:
+
         json.dump(dict_jobs, fp, indent=4)
     fp.close()
     with open('scrap/job_skills.json', 'w') as fp2:
