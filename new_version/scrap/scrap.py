@@ -131,7 +131,7 @@ class Spider:
 
 
 def job_scrap():
-    for page in range(1):
+    for page in range(3):
         spider = Spider("https://staff.am/en/jobs?page=" + str(page) + "&per-page=50")
         spider.run()
         print(dict_jobs)
