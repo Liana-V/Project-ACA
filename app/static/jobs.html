@@ -1,0 +1,224 @@
+{% extends "layout.html" %}
+
+{% block title %} Jobs {% endblock %}
+{% block content %}
+<div class="content">
+
+    <form id="jobs-filter" action="" method="GET">
+
+        <div class="search-box">
+
+            <span class="search-icon"></span>
+            <input type="text" name="search" placeholder="Search..">
+
+            </span>
+        </div>
+        <div></div>
+        <div></div>
+
+        <div class="filter_panel">
+            <div class="candidate-levels-sidebar">
+                <h2>Filter by specialist level</h2>
+                <div class="form-group field-jobsfilter-job_candidate_level">
+                    <input type="hidden" name="JobsFilter[job_candidate_level]" value="">
+                    <div id="jobsfilter-job_candidate_level">
+                        {% for i in range(levels| length) %}
+                        <label>
+                            <input type="checkbox" name="JobsFilter[job_candidate_level][]" value={{i|string}}>
+                            <en>{{levels[i].level_name}}</en>
+                            <span> </span>
+                        </label>
+
+                        {% endfor %}
+                    </div>
+                    <div class="help-block"></div>
+                </div>
+            </div>
+            <div class="categories-sidebar">
+                <h2>Filter by job category</h2>
+                <div class="form-group field-jobsfilter-category">
+                    <input type="hidden" name="JobsFilter[category]" value="">
+                    <div id="jobsfilter-category">
+                        <label>
+                            <input type="checkbox" name="JobsFilter[category][]" value="1">
+                            <en>Software development</en>
+                            <span data-count="207"> </span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="JobsFilter[category][]" value="2">
+                            <en>Quality Assurance /Control</en>
+                            <span data-count="31"> </span>
+                        </label>
+                        <label><input type="checkbox" name="JobsFilter[category][]" value="3">
+                            <en>Web/Graphic design</en>
+                            <span data-count="36"> </span></label><label><input type="checkbox"
+                                                                                name="JobsFilter[category][]" value="4">
+                        <en>Product/Project Management</en>
+                        <span data-count="36"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="5">
+                        <en>Hardware design</en>
+                        <span data-count="1"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="6">
+                        <en>Other IT</en>
+                        <span data-count="39"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="7">
+                        <en>Sales/service management</en>
+                        <span data-count="77"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="8">
+                        <en>Administrative/office-work</en>
+                        <span data-count="19"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="9">
+                        <en>Tourism/Hospitality/HoReCa</en>
+                        <span data-count="6"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="10">
+                        <en>Marketing/Advertising</en>
+                        <span data-count="41"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="11">
+                        <en>Communications/Journalism/PR</en>
+                        <span data-count="9"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="12">
+                        <en>Accounting/Bookkeeping/Cash register</en>
+                        <span data-count="23"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="13">
+                        <en>Finance Management</en>
+                        <span data-count="15"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="14">
+                        <en>Banking/credit</en>
+                        <span data-count="27"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="15">
+                        <en>TV/Radio/Entertainment</en>
+                        <span data-count="1"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="16">
+                        <en>Education/training</en>
+                        <span data-count="6"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="17">
+                        <en>Legal</en>
+                        <span data-count="11"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="18">
+                        <en>Audit/Compliance</en>
+                        <span data-count="4"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="19">
+                        <en>Healthcare/Pharmaceutical</en>
+                        <span data-count="5"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="20">
+                        <en>Construction</en>
+                        <span data-count="14"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="21">
+                        <en>Human Resources</en>
+                        <span data-count="13"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="22">
+                        <en>Sports/Beauty</en>
+                        <span data-count="1"></span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                          value="23">
+                        <en>Procurement/Logistics/Courier</en>
+                        <span data-count="11"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="24">
+                        <en>Production</en>
+                        <span data-count="6"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="25">
+                        <en>Business/Management</en>
+                        <span data-count="8"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="26">
+                        <en>Art/Design/Architecture</en>
+                        <span data-count="4"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="27">
+                        <en>General/professional/Other services</en>
+                        <span data-count="11"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="28">
+                        <en>IT security/Networks</en>
+                        <span data-count="7"></span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                          value="29">
+                        <en>NGO/Nonprofit</en>
+                        <span data-count="5"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="31">
+                        <en>Insurance</en>
+                        <span data-count="1"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="33">
+                        <en>Hospitality/Entertainment</en>
+                        <span data-count="1"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="34">
+                        <en>Data Science/Data Analytics</en>
+                        <span data-count="10"> </span></label><label><input type="checkbox"
+                                                                            name="JobsFilter[category][]" value="35">
+                        <en>Foreign language</en>
+                        <span data-count="3"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="36">
+                        <en>Economics</en>
+                        <span data-count="0"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="37">
+                        <en>Hardware Design / Engineering</en>
+                        <span data-count="4"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="38">
+                        <en>Data Collection &amp; Analytics</en>
+                        <span data-count="2"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="40">
+                        <en>Mechanical</en>
+                        <span data-count="7"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="41">
+                        <en>System Admin/Engineer</en>
+                        <span data-count="8"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="42">
+                        <en>Retail business</en>
+                        <span data-count="2"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="43">
+                        <en>Network Administration</en>
+                        <span data-count="2"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="44">
+                        <en>Consultancy</en>
+                        <span data-count="0"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="47">
+                        <en>Content writing</en>
+                        <span data-count="2"> </span></label><label><input type="checkbox" name="JobsFilter[category][]"
+                                                                           value="48">
+                        <en>Security</en>
+                        <span data-count="1"> </span></label></div>
+                    <div class="help-block"></div>
+                </div>
+            </div>
+            <div class="type-sidebar">
+                <h2>Filter by job types</h2>
+                <div class="form-group field-jobsfilter-job_type">
+                    <input type="hidden" name="JobsFilter[job_type]" value="">
+                    <div id="jobsfilter-job_type"><label><input type="checkbox" name="JobsFilter[job_type][]" value="1">Full
+                        time<span> </span></label><label><input type="checkbox" name="JobsFilter[job_type][]"
+                                                                value="2">Part
+                        time<span> </span></label><label><input type="checkbox" name="JobsFilter[job_type][]" value="4">Training<span> </span></label><label><input
+                            type="checkbox" name="JobsFilter[job_type][]" value="5">Fixed term
+                        contract<span> </span></label><label><input type="checkbox" name="JobsFilter[job_type][]"
+                                                                    value="6">Other<span> </span></label><label><input
+                            type="checkbox" name="JobsFilter[job_type][]"
+                            value="7">Tender<span> </span></label><label><input type="checkbox"
+                                                                                name="JobsFilter[job_type][]" value="3">Internship<span> </span></label><label><input
+                            type="checkbox" name="JobsFilter[job_type][]" value="9">Remote<span> </span></label>
+                    </div>
+                    <div class="help-block"></div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <section class="products">
+        {% for job in jobs %}
+
+        <div class="jobs-card">
+
+            <div class="jobs-image-wrapper ">
+                <a class="single-jobs" href="{{ url_for('main.personal', id=job.id) }}">
+                    <div class="jobinfo text-center">
+                        <img src={{job.img}}>
+                        <h5> {{ job.title }}</h5>
+                        <h6>{{ job.company}}</h6>
+                        <h8> {{ job.deadline }}</h8>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+
+{% endblock content %}
+
+
+

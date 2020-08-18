@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.png')}}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+  <!-- Bootstrap CSS File -->
+  <link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <!-- Libraries CSS Files -->
+  <link href="{{ url_for('static', filename='lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/animate/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Main Stylesheet File -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+
+   <!--==========================
+  Header
+  ============================-->
+  <header id="header">
+
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="{{ url_for('main.home') }}" class="scrollto"><img src="static/img/logo.png" alt="" class="img-fluid"></a>
+      </div>
+            <nav class="main-nav float-right d-none d-lg-block">
+              <ul>
+                  <li ><a href="{{ url_for('main.home') }}">Home</a></li>
+                  <li><a href="{{ url_for('main.jobs') }}">Jobs</a></li>
+                  <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+
+                  {% if current_user.is_authenticated %}
+
+                      <li><a class="nav-item nav-link" href="{{ url_for('auth.account') }}">Account</a> </li>
+                      <li><a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Logout</a> </li>
+
+                    {% else %}
+
+                      <li> <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Login</a></li>
+                      <li><a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a></li>
+
+                  {% endif %}
+              </ul>
+
+              </nav>
+    </div>
+    </header> <!-- #header -->
+
+{% block intro %}{% endblock %}
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+
+
+
+        </div>
+      </div>
+        {% block content %}{% endblock %}
+    </main>
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer" class="section-bg">
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-6">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+
+                  <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p>
+                      3 Hakob Hakobyan Street <br>
+                      Yerevan, Armenia <br>
+                      <strong> Phone:</strong> +374 99 999 999<br>
+                      <strong>Email:</strong> info@jobs.com<br>
+                    </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright 2020. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
+        -->
+        Designed by ACA Students
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+  <script src="{{ url_for('static', filename='lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/jquery/jquery-migrate.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/easing/easing.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/mobile-nav/mobile-nav.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/wow/wow.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/isotope/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='lib/lightbox/js/lightbox.min.js')}}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+    </body>
+</html>

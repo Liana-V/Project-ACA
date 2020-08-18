@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %} Jobs {% endblock %}
+{% block content %}
+
+<section id="info" class="grid">
+    <div class="company">
+
+    <div class="image-wrap">
+        <img src="{{job.img}}">
+    </div>
+         <div class="company_name">
+            <h1>{{ job.company  }}</h1>
+        </div>
+        </div>
+    <div class="specification-wrap">
+        <h2>{{ job.title }}</h2>
+        <h3>Job description:</h3>
+            <p>{{ job.job_desc }}</p>
+            <h3>Deadline:</h3>
+            <p> {{ job.deadline }}</p>
+        <h3>Category:</h3>
+            <p> {{ job.category }}</p>
+        <h3>Job type:</h3>
+            <p> {{ job.job_type }}</p>
+<h3>Job responsibilities:</h3>
+            <p> {{ job.job_resp }}</p>
+        <h3>Required qualifications:</h3>
+            <p> {{ job.req_qual }}</p>
+        <h3>Required candidate level: </h3>
+            <p>{{ job.req_cond_level }}</p>
+        <h3>Salary:</h3>
+            <p> {{ job.salary }}</p>
+        <div class="skills">
+        <h3>Skills:</h3>
+        {%for skill in skills%}
+        <div class="skill">
+            {{skill}}
+        </div>
+        {%endfor%}
+            </div>
+        <h3>Additional information:</h3>
+            <p>  {{ job.add_info }}</p>
+
+    </div>
+
+    {% if current_user.is_authenticated %}
+    <div class="matching">
+        <img src="{{ url_for('static', filename='img/progress.png')}}" alt="">
+        <h3 id="matching">MATCHES YOUR BACKGROUND FOR ABOUT {{matching}} %</h3>
+    </div>
+     {% endif %}
+
+</section>
+
+
+
+{% endblock content %}
