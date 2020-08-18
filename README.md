@@ -9,21 +9,21 @@ How it looks
 ----------------
 Home page example:
 
-![Index page example](new_version/static/img/index_page.png)
+![Index page example](app/static/img/index_page.png)
   
  
 Jobs page example:
 
-![Jobs page example](new_version/static/img/jobs_page.png)
+![Jobs page example](app/static/img/jobs_page.png)
  
 Job page example:
 
-![Job page example](new_version/static/img/job_page.png)
+![Job page example](app/static/img/job_page.png)
 
 
 Database scheme
 --------------------
-![Database scheme](new_version/static/img/database_scheme.png)
+![Database scheme](app/static/img/database_scheme.png)
 
 
 Installation
