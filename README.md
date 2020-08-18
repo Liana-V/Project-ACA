@@ -4,3 +4,56 @@ The main object of the project is to create a web site where a person could regi
 ## Instructions
 
 As always ensure you create a virtual environment for this application and install the necessary libraries from the requirements.txt file.
+
+How it looks
+----------------
+Home page example:
+
+![Index page example](new_version/static/img/index_page.png)
+  
+ 
+Jobs page example:
+
+![Jobs page example](new_version/static/img/jobs_page.png)
+ 
+Job page example:
+
+![Job page example](new_version/static/img/job_page.png)
+
+
+Database scheme
+--------------------
+![Database scheme](new_version/static/img/database_scheme.png)
+
+
+Installation
+-----------
+To run the API locally, please perform the following steps:
+
+1.Clone the repository from [https://github.com/Liana-V/Project](https://github.com/Liana-V/Project)
+```
+$ git clone https://github.com/Liana-V/Project.git
+```
+
+2.Navigate to the checked out project
+```
+$ cd Jobs
+```
+3.Create a virtualenv, and activate this:
+```
+$ virtualenv env 
+$ source env/bin/activate
+```
+4.Install dependencies from `requirements.txt`
+```
+$ pip install -r requirements.txt
+```
+    
+How to run
+-------------
+Now you can run the Flask server.
+```
+(venv) $ python run.py 
+```
+To see your application, access this url in your browser:
+`http://127.0.0.1:5000` 
