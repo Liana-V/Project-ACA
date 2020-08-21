@@ -49,6 +49,11 @@
         <img src="{{ url_for('static', filename='img/progress.png')}}" alt="">
         <h3 id="matching">MATCHES YOUR BACKGROUND FOR ABOUT {{matching}} %</h3>
     </div>
+    {%else %}
+    <div class="matching">
+        <img src="{{ url_for('static', filename='img/progress.png')}}" alt="">
+        <h3 id="matching">To see matching of your skills and THIS job skills please login/register an account</h3>
+    </div>
      {% endif %}
 
 </section>

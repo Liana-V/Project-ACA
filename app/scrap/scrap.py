@@ -151,8 +151,8 @@ class Spider:
 
 
 def job_scrap():
-    for page in range(50):
-        spider = Spider("https://staff.am/en/jobs?page={}{}".format(str(50), "&per-page=50"))
+    for page in range(1):
+        spider = Spider("https://staff.am/en/jobs?page={}{}".format(str(page), "&per-page=50"))
         a=spider.run()
         if not a:
             break

@@ -18,6 +18,10 @@ Jobs page example:
  
 Job page example:
 
+!!!!!!
+
+If you are not a registered user you cannot see matching of your skills and  job skills
+
 ![Job page example](app/static/img/job_page.png)
 
 
@@ -30,9 +34,9 @@ Installation
 -----------
 To run the API locally, please perform the following steps:
 
-1.Clone the repository from [https://github.com/Liana-V/Project](https://github.com/Liana-V/Project)
+1.Clone the repository from [https://github.com/Liana-V/Project-ACA](https://github.com/Liana-V/Project)
 ```
-$ git clone https://github.com/Liana-V/Project.git
+$ git clone https://github.com/Liana-V/Project-ACA.git
 ```
 
 2.Navigate to the checked out project
