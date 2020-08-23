@@ -6,11 +6,12 @@ from bs4 import BeautifulSoup, NavigableString
 from db.dbmgr import find
 import hashlib
 
-
-global dict_jobs,job_skills,h_count
-dict_jobs=[]
+global dict_jobs, job_skills, h_count
+dict_jobs = []
 job_skills = []
-h_count=0
+h_count = 0
+
+
 class Spider:
     def __init__(self, url: str):
         self.url = url
@@ -59,7 +60,7 @@ class Spider:
             for i in k:
                 if isinstance(i, NavigableString):
                     continue
-                if i.has_attr('class') and i['class'][0]=='hidden':
+                if i.has_attr('class') and i['class'][0] == 'hidden':
                     continue
 
                 if i.name == 'h3':
@@ -70,7 +71,7 @@ class Spider:
                         arr.append(i.text)
                     h = []
                     m += 1
-                    #print()
+                    # print()
                     continue
                 u = i.text
                 h.append(u)
@@ -96,17 +97,17 @@ class Spider:
             skills = []
             for i in skill_tag:
                 skills.append(i.text.replace('\n', ''))
-            id="{}{}{}".format(str(company).replace(" ", "").replace('\n', '').rstrip(), str(title).replace(" ", "").replace('\n',''),str(deadline).replace(" ", "").replace('\n', '') )
+            id = "{}{}{}".format(str(company).replace(" ", "").replace('\n', '').rstrip(),
+                                 str(title).replace(" ", "").replace('\n', ''),
+                                 str(deadline).replace(" ", "").replace('\n', ''))
             id = hashlib.sha1(str.encode(id)).hexdigest()[:12]
-            id=int(id, 16)
+            id = int(id, 16)
 
             for s in skills:
                 s = find('id', 'SKILLS', str(s))
                 if s:
-                    job_skills.append({'id':h_count,'job_id': id, 'skill_id': s})
-                    h_count+=1
-
-
+                    job_skills.append({'id': h_count, 'job_id': id, 'skill_id': s})
+                    h_count += 1
 
             record = {
                 'id': id, 'company': company, 'img': img, 'title': title, 'deadline': deadline,
@@ -117,25 +118,24 @@ class Spider:
             for value in record:
                 try:
 
-                    spliter=record[value].split(':') # for Armenian language ՛։՛ is considered the end of a sentence
-                    if len(spliter)==0 :
+                    spliter = record[value].split(':')  # for Armenian language ՛։՛ is considered the end of a sentence
+                    if len(spliter) == 0:
                         continue
                     if '\n' in spliter[1]:
                         record[value] = spliter[0]
                     else:
-                        record[value]=spliter[1]
+                        record[value] = spliter[1]
                 except Exception as ex:
                     pass
 
         return record
-
 
     def __crawl(self, url: str) -> dict:
         soup = self.__open_url(url)
         counter = 0
         if soup:
             div_tag = soup.find("div", {"id": "search_list_block"})
-            k = div_tag.find_all('a',{"class":"history_block_style history_block_padding"})
+            k = div_tag.find_all('a', {"class": "history_block_style history_block_padding"})
             if not k:
                 pass
             for j in range(0, len(k)):
@@ -153,7 +153,7 @@ class Spider:
 def job_scrap():
     for page in range(1):
         spider = Spider("https://staff.am/en/jobs?page={}{}".format(str(page), "&per-page=50"))
-        a=spider.run()
+        a = spider.run()
         if not a:
             break
     with open('scrap/data.json', 'w') as fp:

@@ -17,23 +17,25 @@ class User(db.Model, UserMixin):
 class Level(db.Model):
     __tablename__ = 'LEVEL'
 
+
 class Category(db.Model):
     __tablename__ = 'CATEGORY'
 
 
 class Post(db.Model):
-
     __tablename__ = 'JOBS'
 
     def __repr__(self):
         return self.DISTRICT
 
+
 class Users_skills(db.Model):
-
     __tablename__ = 'USER_SKILLS'
+
+
 class Jobs_skills(db.Model):
-
     __tablename__ = 'JOBS_SKILLS'
-class Skills(db.Model):
 
+
+class Skills(db.Model):
     __tablename__ = 'SKILLS'
