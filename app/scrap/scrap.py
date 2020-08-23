@@ -70,7 +70,7 @@ class Spider:
                         arr.append(i.text)
                     h = []
                     m += 1
-                    print()
+                    #print()
                     continue
                 u = i.text
                 h.append(u)
